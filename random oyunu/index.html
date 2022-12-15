@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        border: 1px black solid;
+        height: 20px;
+        width: 200px;
+    }
+    .container{
+        display: flex;
+    }
+    .oyuncu1{
+        margin-right: 20px;
+    }
+
+</style>
+<body>
+
+<div class="container">
+    <div class="oyuncu1">
+        <p class="sans1"></p>
+        <button class="btn1">Sans</button>
+        <h1>Skor1</h1>
+        <p class="skor1"></p>
+        <p class="sira1"></p>
+    </div>
+    <div class="oyuncu2">
+        <p class="sans2"></p>
+        <button class="btn2">Sans</button>
+        <h1>Skor2</h1>
+        <p class="skor2"></p>
+        <p class="sira2"></p>
+    </div>
+</div>    
+    
+    <script>
+
+let sans1=document.querySelector('.sans1');
+let sans2=document.querySelector('.sans2');
+
+let btn1=document.querySelector('.btn1');
+let btn2=document.querySelector('.btn2');
+
+let skor1=document.querySelector('.skor1');
+let skor2=document.querySelector('.skor2');
+
+let sira1=document.querySelector('.sira1');
+let sira2=document.querySelector('.sira2');
+
+let oyuncu1=document.querySelector('.oyuncu1');
+let oyuncu2=document.querySelector('.oyuncu2');
+
+
+n=1
+s=0
+
+sira1.style.background='green'
+sira2.style.background='red'
+
+btn1.addEventListener('click',(event)=>{
+   
+    if(s<=1000){
+        if(n%2==1){
+            random1=Math.round(Math.random())
+            sans1.innerText=`${random1}`
+            sira1.style.background='red'
+            sira2.style.background='green'
+            sans2.innerText=''
+        } 
+
+        if(random1==1){
+            s=s+Math.round(Math.random()*100)
+            skor1.innerText=`${s}`
+            n++;
+        }
+        else{
+            s=s;
+            skor1.innerText=`${s}`
+            n++;
+        }
+        
+    }   
+    else{
+        oyuncu1.style.background='green'
+        sira1.style.background='white'
+        sira1.innerText='Qalib geldiniz'
+    }
+})
+
+s1=0;
+
+btn2.addEventListener('click',(event)=>{
+   
+   if(s1<=1000){
+       if(n%2==0){
+            random2=Math.round(Math.random())
+            sans2.innerText=`${random2}`
+            sira2.style.background='red'
+            sira1.style.background='green'
+            sans1.innerText=''
+       } 
+
+       if(random2==1){
+            s1=s1+Math.round(Math.random()*100)
+            skor2.innerText=`${s1}`
+            n++;
+       }
+       else{
+            s1=s1
+            skor2.innerText=`${s1}`
+            n++;
+       }
+      
+   }   
+   else{
+        oyuncu2.style.background='green'
+        sira2.style.background='white'
+        sira2.innerText='Qalib geldiniz'
+   }
+})
+
+
+
+
+
+
+    </script>
+</body>
+</html>
